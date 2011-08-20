@@ -1,9 +1,10 @@
-Everybody loves at least two things:
+Two things I like are:
 
-* The `Command` + `Shift` + `4` shortcut for easily making screenshots in OS X.
+* The `Command` + `Shift` + `4` shortcut for taking screenshots (OS X).
 * The world wide web
 
-So why not combine the two?
+So why not combine the two? This mini-project will turn the screen
+capture utility on OS X into a lean, mean image uploading machine.
 
 # Installation
 
