@@ -3,8 +3,8 @@ Two things I like are:
 * The `Command` + `Shift` + `4` shortcut for taking screenshots (OS X).
 * The world wide web
 
-So why not combine the two? This mini-project will turn the screen
-capture utility on OS X into a lean, mean image uploading machine.
+So why not combine the two? This mini-project turns the screen capture
+utility on OS X into a lean, mean image uploading machine.
 
 # Installation
 
