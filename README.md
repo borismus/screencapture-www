@@ -7,5 +7,5 @@ So why not combine the two?
 
 # Installation
 
-1. `sudo mv /usr/sbin/screencast /usr/sbin/screencast-bin`
-2. `curl https://raw.github.com/borismus/screencapture-www/master/screencapture > /usr/sbin/screencast`
+1. `sudo mv /usr/sbin/screencapture /usr/sbin/screencapture-bin`
+2. `curl https://raw.github.com/borismus/screencapture-www/master/screencapture > /usr/sbin/screencapture`
