@@ -9,3 +9,4 @@ So why not combine the two?
 
 1. `sudo mv /usr/sbin/screencapture /usr/sbin/screencapture-bin`
 2. `sudo sh -c 'curl https://raw.github.com/borismus/screencapture-www/master/screencapture > /usr/sbin/screencapture'`
+3. `sudo chmod +x /usr/sbin/screencapture`
