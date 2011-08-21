@@ -5,18 +5,27 @@ IMGUR_KEY=11e00c46b37ef34d1af937155505e59c
 IMGUR_URL=http://api.imgur.com/2/upload
 TMP=/tmp/screenshot.png
 
-# Take a screenshot
+# Take a screenshot.
 $SCREENCAPTURE -i $TMP
 
-# Upload it to imgur.com
+# Check that the screenshot was actually captured.
+if [ -ne $TMP ]
+then
+  exit
+fi
+
+# Upload it to imgur.com.
 out=`curl -X POST -F image=@$TMP -F key=$IMGUR_KEY $IMGUR_URL`
 echo $out
 
 # Parse the URL out from the response.
 url=`echo $out | sed 's/.*<original>\(.*\)<\/original>.*/\1/'`
 
-# Copy the URL into the pastebuffer
+# Copy the URL into the pastebuffer.
 echo $url | pbcopy
 
-# Also open the URL in the browser
+# Also open the URL in the browser.
 open $url
+
+# Clean up the temporary local image.
+rm $TMP
