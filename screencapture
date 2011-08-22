@@ -9,14 +9,13 @@ TMP=/tmp/screenshot.png
 $SCREENCAPTURE -i $TMP
 
 # Check that the screenshot was actually captured.
-if [ -ne $TMP ]
+if [ ! -e $TMP ]
 then
-  exit
+  exit 1
 fi
 
 # Upload it to imgur.com.
-out=`curl -X POST -F image=@$TMP -F key=$IMGUR_KEY $IMGUR_URL`
-echo $out
+out=`curl -X POST -F image=@$TMP -F key=$IMGUR_KEY $IMGUR_URL 2> /dev/null`
 
 # Parse the URL out from the response.
 url=`echo $out | sed 's/.*<original>\(.*\)<\/original>.*/\1/'`
