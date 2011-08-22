@@ -11,7 +11,7 @@ if [ $SHADOW ]; then SHADOW="-o"; else SHADOW=""; fi
 $SCREENCAPTURE $SHADOW -i "$TMP"
 
 # Check that the screenshot was actually captured.
-if [ -ne "$TMP" ]
+if [ -e "$TMP" ]
   then
     exit
 fi
@@ -27,3 +27,6 @@ pbcopy <<< "$url"
 
 # Also open the URL in the browser.
 open "$url"
+
+# Clean up the temporary local image.
+rm "$TMP"
