@@ -8,7 +8,7 @@ SHADOW=$(defaults read com.apple.screencapture disable-shadow)
 if [ $SHADOW ]; then SHADOW="-o"; else SHADOW=""; fi
 
 # Take a screenshot.
-$SCREENCAPTURE "$SHADOW" -i "$TMP"
+$SCREENCAPTURE $SHADOW -i "$TMP"
 
 # Check that the screenshot was actually captured.
 if [ -ne "$TMP" ]
