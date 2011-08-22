@@ -11,9 +11,9 @@ if [ $SHADOW ]; then SHADOW="-o"; else SHADOW=""; fi
 $SCREENCAPTURE $SHADOW -i "$TMP"
 
 # Check that the screenshot was actually captured.
-if [ -e "$TMP" ]
-  then
-    exit
+if [ ! -e "$TMP" ]
+then
+  exit
 fi
 
 # Upload it to imgur.com.
