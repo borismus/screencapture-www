@@ -2,30 +2,31 @@
 
 SCREENCAPTURE=/usr/sbin/screencapture-bin
 IMGUR_KEY=11e00c46b37ef34d1af937155505e59c
-IMGUR_URL=http://api.imgur.com/2/upload
+IMGUR_URL=http://api.imgur.com/2/upload.json
 TMP=/tmp/screenshot.png
+SHADOW=$(defaults read com.apple.screencapture disable-shadow)
+if [ $SHADOW ]; then SHADOW="-o"; else SHADOW=""; fi
 
 # Take a screenshot.
-$SCREENCAPTURE -i $TMP
+$SCREENCAPTURE $SHADOW -i "$TMP"
 
 # Check that the screenshot was actually captured.
-if [ -ne $TMP ]
-then
-  exit
+if [ -e "$TMP" ]
+  then
+    exit
 fi
 
 # Upload it to imgur.com.
-out=`curl -X POST -F image=@$TMP -F key=$IMGUR_KEY $IMGUR_URL`
-echo $out
+out=$(curl -X POST -F "image=@$TMP" -F "key=$IMGUR_KEY" "$IMGUR_URL")
 
 # Parse the URL out from the response.
-url=`echo $out | sed 's/.*<original>\(.*\)<\/original>.*/\1/'`
+url=$(echo "$out" | sed 's/.*"original":"\([^"]*\)".*/\1/' | tr -d '\\')
 
 # Copy the URL into the pastebuffer.
-echo $url | pbcopy
+pbcopy <<< "$url"
 
 # Also open the URL in the browser.
-open $url
+open "$url"
 
 # Clean up the temporary local image.
-rm $TMP
+rm "$TMP"
