@@ -2,7 +2,7 @@
 
 SCREENCAPTURE=/usr/sbin/screencapture-bin
 IMGUR_KEY=11e00c46b37ef34d1af937155505e59c
-IMGUR_URL=http://api.imgur.com/2/upload.json
+IMGUR_URL=https://api.imgur.com/2/upload.json
 TMP=/tmp/screenshot.png
 SHADOW=$(defaults read com.apple.screencapture disable-shadow)
 if [ $SHADOW ]; then SHADOW="-o"; else SHADOW=""; fi
