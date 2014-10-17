@@ -9,7 +9,7 @@ utility on OS X into a lean, mean image uploading machine.
 # Install
 
 1. `sudo mv /usr/sbin/screencapture /usr/sbin/screencapture-bin`
-2. `sudo sh -c 'curl https://raw.github.com/borismus/screencapture-www/master/screencapture > /usr/sbin/screencapture'`
+2. `sudo sh -c 'curl https://raw.githubusercontent.com/borismus/screencapture-www/master/screencapture > /usr/sbin/screencapture'`
 3. `sudo chmod +x /usr/sbin/screencapture`
 
 # Uninstall
